@@ -1,6 +1,5 @@
-const router = require('express')
-const { model } = require('mongoose')
+const router = require('express').Router()
 
-router.request('./api', require('.itemRoutes'))
+router.use('/api', require('./itemRoutes.js'))
 
 module.exports = router

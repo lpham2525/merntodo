@@ -1,8 +1,9 @@
+// require.apply('dotenv').config()
 const express = require('express')
 const { join } = require('path')
 const app = express()
 
-app.use(express.static(__dirname, 'client', 'build'))
+app.use(express.static(join(__dirname, 'client', 'build')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
@@ -12,6 +13,9 @@ app.get('*', (req, res) => {
   res.sendFile(join(__dirname, 'client', 'build', 'index.html'))
 })
 
-require('mongoose').createConnection('mongodb://localhost/tododb')
-  .then(() => app.listen(process.env.PORT || 3000))
+require('mongoose').connect('mongodb://localhost/tododb', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+  .then(() => app.listen(process.env.PORT || 3001), console.log('App is running'))
   .catch(err => console.error(err))
