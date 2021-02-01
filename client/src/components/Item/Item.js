@@ -25,8 +25,7 @@ const Item = props => {
       <ListItemAvatar
         onClick={() => props.handleUpdateItem(props.item._id, props.item.isDone)}
       >
-        <Avatar className={props.item.isDone ? classes.done : classes.notDone}
-        />
+        <Avatar className={props.item.isDone ? classes.done : classes.notDone}>
           <DoneIcon />
         </Avatar>
       </ListItemAvatar>
