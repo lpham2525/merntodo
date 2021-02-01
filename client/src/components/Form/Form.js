@@ -1,5 +1,9 @@
 import React, { useContext } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import ItemContext from '../../utils/ItemContext'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import Paper from '@material-ui/core/Paper'
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -8,11 +12,13 @@ const useStyles = makeStyles(theme => ({
   },
   input: {
     marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(400),
-    width: '25ch'
   }
 }))
+
 const Form = () => {
+
+  const classes = useStyles()
+
   const {
     item,
     handleInputChange,
@@ -20,22 +26,19 @@ const Form = () => {
   } = useContext(ItemContext)
 
   return (
-      <Paper>
-    <form onSubmit={handleAddItem}>
-      <
-        <label htmlFor='item'>item</label>
-        <input
-          type='text'
-          name='item'
-          id='item'
+    <Paper className={classes.form}>
+      <form onSubmit={handleAddItem}>
+        <TextField
+          className={classes.input}
+          label="Item"
+          type="text"
+          name="item"
+          id="item"
           value={item}
-          onChange={handleInputChange}
-        />
-      </p>
-      <>
-        <button onClick={handleAddItem}>Add Item</button>
-      </Paper>
-    </form>
+          onChange={handleInputChange} />
+        <Button variant="contained" color="primary" onClick={handleAddItem}>Add Item</Button>
+      </form>
+    </Paper>
   )
 }
 
