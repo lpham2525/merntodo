@@ -11,12 +11,11 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '20px'
   },
   input: {
-    marginLeft: theme.spacing(1),
+    marginLeft: theme.spacing(1)
   }
 }))
 
 const Form = () => {
-
   const classes = useStyles()
 
   const {
@@ -35,7 +34,8 @@ const Form = () => {
           name="item"
           id="item"
           value={item}
-          onChange={handleInputChange} />
+          onChange={handleInputChange}
+        />
         <Button variant="contained" color="primary" onClick={handleAddItem}>Add Item</Button>
       </form>
     </Paper>

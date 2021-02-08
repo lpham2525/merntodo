@@ -22,9 +22,11 @@ const Navbar = () => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <AppBar position= 'static'>
+      <AppBar position='static'>
         <Toolbar>
-          <IconButton edge='start' color= 'inherit'
+          <IconButton
+            edge='start'
+            color='inherit'
             aria-label='menu' className={classes.menuButton}
           >
             <MenuIcon />
